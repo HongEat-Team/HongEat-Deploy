@@ -4,8 +4,6 @@ services:
 # redis 설정
   redis:
     image: "redis:alpine"
-    ports:
-      - '6379:6379'
     network_mode: "host"
 
 # 서버 설정
