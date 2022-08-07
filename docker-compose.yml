@@ -6,8 +6,10 @@ services:
     hostname: backend
     env_file:
       - .env
-    expose:
-      - '8000'
+#     expose:
+#       - '8000'
+    ports:
+      - '8000:8000'
     depends_on:
       - postgres
       - redis
@@ -22,7 +24,7 @@ services:
       dockerfile: Dockerfile
       context: ./nginx
     ports:
-      - "80:80"
+      - '80:80'
     networks:
       - postgres
 
