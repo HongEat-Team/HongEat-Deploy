@@ -13,9 +13,7 @@ services:
   redis:
     image: "redis:alpine"
     ports:
-      - '6379:6379'
-    networks:
-      - postgres           
+      - '6379:6379'          
 
   nginx:
     depends_on:
