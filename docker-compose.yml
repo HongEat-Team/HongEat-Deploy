@@ -6,15 +6,16 @@ services:
     hostname: backend
     env_file:
       - .env
-#     expose:
-#       - '8000'
+    expose:
+      - '8000'
+
+# 내부 db 설정
+  redis:
+    image: "redis:alpine"
     ports:
-      - '8000:8000'
-    depends_on:
-      - postgres
-      - redis
+      - '6379:6379'
     networks:
-      - postgres
+      - postgres           
 
   nginx:
     depends_on:
@@ -25,40 +26,4 @@ services:
       context: ./nginx
     ports:
       - '80:80'
-    networks:
-      - postgres
-
-# 내부 db 설정
-  redis:
-    image: "redis:alpine"
-    ports:
-      - '6379:6379'
-    networks:
-      - postgres      
-
-  postgres:
-    image: postgres:latest
-    container_name: postgres
-    restart: always
-    ports:
-      - '5432:5432'
-    env_file:
-      - .env
-    networks:
-      - postgres
-
-  pgadmin:
-    links:
-      - postgres:postgres
-    container_name: pgadmin
-    image: dpage/pgadmin4
-    ports:
-      - '8080:80'
-    env_file:
-      - .env
-    networks:
-      - postgres
-
-networks:
-  postgres:
-    driver: bridge
+ 
