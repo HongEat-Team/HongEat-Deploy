@@ -40,7 +40,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          envs:
           script: |
             sh ~/srv/ubuntu/deploy.sh
             echo "start docker-compose up: ubuntu"
