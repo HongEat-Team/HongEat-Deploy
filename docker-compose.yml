@@ -22,11 +22,11 @@ services:
 
 # nginx 설정
   nginx:
-    network_mode: "host"
     depends_on:
       - backend
       - frontend
       - redis
+    network_mode: "host"
     restart: always
     build:
       dockerfile: Dockerfile
