@@ -14,11 +14,18 @@ services:
     env_file:
       - .env
 
+# 리액트 설정
+  frontend:
+    image: gengminy/hififront:main
+    container_name: frontend
+    network_mode: "host"
+
 # nginx 설정
   nginx:
     network_mode: "host"
     depends_on:
       - backend
+      - frontend
     restart: always
     build:
       dockerfile: Dockerfile
