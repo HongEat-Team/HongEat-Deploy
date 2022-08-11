@@ -8,7 +8,7 @@ services:
 
 # 서버 설정
   backend:
-    image: gengminy/hifi-dev:dev
+    image: gengminy/hifi-dev:main
     container_name: backend
     network_mode: "host"
     env_file:
