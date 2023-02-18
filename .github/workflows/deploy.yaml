@@ -22,8 +22,8 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
-          username: ubuntu
-          key: ${{ secrets.KEY }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
           script: mkdir -p ~/srv/ubuntu
 
       - name: copy source via ssh key
