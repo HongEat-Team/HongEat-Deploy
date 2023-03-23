@@ -9,22 +9,23 @@ services:
 # 서버 설정
   backend:
     image: gengminy/hifi-dev:main
-    container_name: backend
-    network_mode: "host"
+    container_name: backend-prod
+    hostname: backend-prod
     env_file:
       - .env
 
 # 리액트 설정
   frontend:
     image: gengminy/hififront:main
-    container_name: frontend
+    container_name: client-prod
+    hostname: client-prod
     network_mode: "host"
 
 # nginx 설정
   nginx:
     depends_on:
-      - backend
-      - frontend
+      - backend-prod
+      - client-prod
       - redis
     network_mode: "host"
     restart: always
