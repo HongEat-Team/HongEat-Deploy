@@ -1,34 +1,39 @@
 version: "3.7"
 services:
-
-# redis 설정
+  # redis 설정
   redis:
     image: "redis:alpine"
     network_mode: "host"
+    ports:
+      - "6379:6379"
 
-# 서버 설정
+  # 서버 설정
   backend:
-    image: gengminy/hifi-dev:main
+    image: squirmm/hongeat-dev:dev
     container_name: backend-prod
     hostname: backend-prod
+    expose:
+      - "8080"
     env_file:
       - .env
 
-# 리액트 설정
-  frontend:
-    image: gengminy/hififront:main
-    container_name: client-prod
-    hostname: client-prod
-    network_mode: "host"
+  # # 리액트 설정
+  # frontend:
+  #   image: gengminy/hififront:main
+  #   container_name: client-prod
+  #   hostname: client-prod
+  #   network_mode: "host"
 
-# nginx 설정
+  # nginx 설정
   nginx:
     depends_on:
       - backend-prod
-      - client-prod
-      - redis
+      # - client-prod
+      # - redis
     network_mode: "host"
     restart: always
     build:
       dockerfile: Dockerfile
       context: ./nginx
+    ports:
+      - "80:80"
