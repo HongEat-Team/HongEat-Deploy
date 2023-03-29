@@ -26,6 +26,7 @@ jobs:
         run: |
           touch .env
           echo "${{ secrets.ENV_VARS }}" >> .env
+          cat .env
 
       - name: copy source via ssh key
         uses: burnett01/rsync-deployments@4.1
