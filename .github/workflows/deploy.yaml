@@ -24,8 +24,8 @@ jobs:
 
       - name: create env file
         run: |
-          touch ./.env
-          echo "${{ secrets.ENV_VARS }}" >> ./.env
+          touch .env
+          echo "${{ secrets.ENV_VARS }}" >> .env
 
       - name: copy source via ssh key
         uses: burnett01/rsync-deployments@4.1
