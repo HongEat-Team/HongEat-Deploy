@@ -8,14 +8,14 @@ services:
       - "6379:6379"
 
   # 서버 설정
-  backend:
+  backend-prod:
     image: squirmm/hongeat-dev:dev
     container_name: backend-prod
     hostname: backend-prod
-    expose:
-      - "8080"
     env_file:
       - .env
+    expose:
+      - "8080"
 
   # # 리액트 설정
   # frontend:
@@ -29,7 +29,7 @@ services:
     depends_on:
       - backend-prod
       # - client-prod
-      # - redis
+      - redis
     # network_mode: "host"
     restart: always
     build:
