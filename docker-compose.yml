@@ -3,7 +3,7 @@ services:
   # redis 설정
   redis:
     image: "redis:alpine"
-    network_mode: "host"
+    # network_mode: "host"
     ports:
       - "6379:6379"
 
@@ -30,7 +30,7 @@ services:
       - backend-prod
       # - client-prod
       # - redis
-    network_mode: "host"
+    # network_mode: "host"
     restart: always
     build:
       dockerfile: Dockerfile
