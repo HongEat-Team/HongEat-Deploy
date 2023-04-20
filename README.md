@@ -1,12 +1,12 @@
-# 🍝 HIFI-Deploy
----
+# 🍝 HongEat-Deploy
 
-홍대 근처 맛집 한줄 리뷰 서비스 HIFI 배포 레포지토리입니다
+홍대 근처 맛집 한줄 리뷰 서비스 HongEat 배포 레포지토리입니다
 
 <br/>
 
 ## 🏛 Architecture Diagram
-<img width="1000" alt="hifiapp 다이어그램" src="https://user-images.githubusercontent.com/72291860/183354099-18137a55-9c37-4aa8-8726-c5de1fd4487c.png">
+![hongeat](https://user-images.githubusercontent.com/62806067/233274477-7980b38e-e7c8-42c7-851c-8204d29ad428.png)
+
 
 <br/>
 
